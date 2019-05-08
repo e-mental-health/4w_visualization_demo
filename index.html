@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--    <script type="text/javascript" src="d3/d3.js"></script>-->
+    <script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="scatterplot.css">
+    <style>
+
+    </style>
+    <script>
+    </script>
+</head>
+    
+
+<body>
+    <style>
+ 
+    </style>
+
+    <header>
+        <div style="margin:auto; border-style: hidden; width:1000px; display:grid; grid-template-rows: auto 40px; grid-template-columns: auto 100px">
+            <h1 style="margin-right:auto; margin-left: 10px; margin-bottom:auto">Demo of the E-mail Sentiment Visualiser</h1>
+            <div></div>
+            <p  style="margin-right:auto; margin-left: 15px; margin-bottom:0px;"><i>Ben de Vries</i>, <small>20/12/2018</small></p>
+        </div>
+    </header>
+    <div class="container">
+
+
+        <div id="explanetion-container">
+            <p>
+                This is a demo version of a visualisation I developed for the <a target="_BLANK" href="https://www.esciencecenter.nl/project/what-works-when-for-whom">What Works When For Whom?</a> project. In this tool I visualise results from different natural language processing (NLP) tools on e-mail conversations. For the purpose of the demo I use emails from the <a target="_BLANK" href="https://www.cs.cmu.edu/~./enron/">ENRON</a> dataset. In this demo I only show the results of one NLP tool called <a target="_BLANK" href="https://www.clips.uantwerpen.be/pages/pattern">Pattern|CLiPS</a> which derives polarity and subjectivity scores (both between -1 and 1). The goal of the visualisation is to be able to inspect which words the sentiment analysis tool uses to come to calculate the scores.
+                
+                <br><br>
+                
+                Below you can choose which variables to plot (in this demo these are limited). When you select a datapoint in the plot you will be served with detailed information, the original raw text of the email annotated with the words selected by the machine learning algorithm and next to that you see how the selected words are rated in polarity and subjectivity.
+                <br><br>
+            </p>
+        </div>
+
+        <div id="file-selection"></div>
+
+        <div id="graph-area">
+            <div id='graph-option-menus-container'>
+                <div class="menu-item-container">
+                    <span class='menuItemText'></span>
+                    <span id="menuY"></span>
+                </div>
+                <div class="menu-item-container">
+                    <span class='menuItemText'></span>
+                    <span id="menuScale"></span>
+                </div>
+
+                <div class="menu-item-container">
+                    <span class='menuItemText'></span>
+                    <span id="menuX"></span>
+                </div>
+                <div>
+                </div>
+                <div class="menu-item-container">
+                    <span class='menuItemText'></span>
+                    <span id="menuMarker"></span>
+                </div>
+                <div></div>
+            </div>
+
+            <div id="content-container">
+                <span id="svg-container">
+                    <svg width="580" height="500"></svg>
+                </span>
+                <span id = 'data-point-info-container' style="">
+                </span>
+                <div id="data-point-text-container">
+                </div>
+                <div id="data-point-annotations-container"> </div>
+            </div>
+  
+        </div>
+        
+        <script src="index.js"></script>
+    </div>
+</body>
+
+</html>
