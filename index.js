@@ -32,6 +32,9 @@ let nonNumCols = [];
 
 let file = "demo_data_4wviz.csv"
 
+const parseDateTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
+let senders = [];
+
 /******************
 *** LOAD DATA *****
 *******************/
@@ -41,6 +44,15 @@ if (file) {
         .then(function(loadedData) {
             data = loadedData;
             data.forEach( (d,i) => {
+                d.time = parseDateTime(d.Date).getTime();
+
+                let senderId = senders.indexOf(d.Sender);
+                if (senderId == -1) {
+                    senders.push(d.Sender);
+                    senderId = senders.length - 1;
+                }
+                d.sender_id = senderId;
+
                 for (let [key, value] of Object.entries(d)) {
                     // We check if it is not a number
                     if (!(value == parseFloat(value, 10))){
@@ -202,8 +214,6 @@ const makeScatterPlot = (selection, props) => {
         tooltips
     } = props;
   
-
-    
     div = d3.select("body").append("div")
           .attr("class", "tooltip")
           .style("opacity", 0);
