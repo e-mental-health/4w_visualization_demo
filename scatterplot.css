@@ -15,7 +15,7 @@ table, th, td {
 }
 
 table-info-text, table-info-text.td {
-    border-collapse: : collapse;
+    border-collapse: collapse;
     border: 1px solid lightblue;
     background-color: grey;
 }
